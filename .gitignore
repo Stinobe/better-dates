@@ -1,0 +1,11 @@
+# Packages
+node_modules/
+bower_components/
+
+# idea
+.history/
+.idea
+
+# Generated
+.cache
+lib/

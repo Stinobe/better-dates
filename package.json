@@ -1,0 +1,32 @@
+{
+  "name": "@stino/better-dates",
+  "version": "0.5.0",
+  "description": "Extended functionality for JavaScript Date object",
+  "main": "index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "test": "jest",
+    "dev": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stinobe/better-dates.git"
+  },
+  "keywords": [
+    "dates",
+    "date"
+  ],
+  "author": "stino",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stinobe/better-dates/issues"
+  },
+  "homepage": "https://github.com/Stinobe/better-dates#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "jest": "^24.9.0",
+    "jsdoc": "^3.6.3"
+  }
+}
