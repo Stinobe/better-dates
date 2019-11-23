@@ -9,3 +9,7 @@ bower_components/
 # Generated
 .cache
 lib/
+coverage/
+
+# OS
+.DS_Store
