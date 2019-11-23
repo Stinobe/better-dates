@@ -23,10 +23,10 @@ You can still access existing methods from the `Date` class as you would do befo
 import BetterDate from "@stino/better-dates"
 // I tend to import the package as BD instead of BetterDate
 
-const date = new Date(87, 9, 14, 11);
+const date = new Date(87, 8, 14, 11);
 // Mon Sep 14 1987 11:00:00 GMT+0200 (CEST)
 
-const betterDate = new BetterDate(87, 9, 14, 11);
+const betterDate = new BetterDate(87, 8, 14, 11);
 // Mon Sep 14 1987 11:00:00 GMT+0200 (CEST)
 ```
 Accessing information from the instances:
