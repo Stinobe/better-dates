@@ -35,9 +35,10 @@ date.setMonth(2);
 // Set month to March on BetterDate instance
 betterDate.month = 2;
 
-console.log(date.getMonth());
-// -> 2
+console.log(date);
+// Sat Mar 14 1987 11:00:00 GMT+0100 (CET)
 
-console.log(betterDate.month)
-// -> 2
+console.log(betterDate)
+// Sat Mar 14 1987 11:00:00 GMT+0100 (CET)
 ```
+> GMT differs because of DST
