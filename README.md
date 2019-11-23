@@ -6,6 +6,18 @@ There are other JavaScript Date libraries out there, but most of them have a lot
 
 That's why I created this package with some basic functionallities I tend to need most when using a Date library. Requests for building complex logic into this package will therefore not be accepted.
 
+### Index
+- [Better Dates](#better-dates)
+    - [Index](#index)
+  - [Accessing existing methods](#accessing-existing-methods)
+  - [New properties](#new-properties)
+    - [Start of day](#start-of-day)
+    - [End of day](#end-of-day)
+    - [Number of days in the month](#number-of-days-in-the-month)
+    - [First day of the month](#first-day-of-the-month)
+    - [Last day of the month](#last-day-of-the-month)
+  - [Upcomming](#upcomming)
+
 ## Accessing existing methods
 You can still access existing methods from the `Date` class as you would do before, but you can acces them as property as well.
 
@@ -104,3 +116,8 @@ const date = new BetterDate(96, 2, 21, 10);
 console.log(date.endOfMonth);
 // -> Sun Mar 31 1996 23:59:59 GMT+0200 (CEST)
 ```
+
+## Upcomming
+- [ ] Check if day is before given date
+- [ ] Check if day is after given day
+- [ ] Check difference between dates
