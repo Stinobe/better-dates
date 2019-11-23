@@ -6,9 +6,7 @@ There are other JavaScript Date libraries out there, but most of them have a lot
 
 That's why I created this package with some basic functionallities I tend to need most when using a Date library. Requests for building complex logic into this package will therefore not be accepted.
 
-### Index
 - [Better Dates](#better-dates)
-    - [Index](#index)
   - [Accessing existing methods](#accessing-existing-methods)
   - [New properties](#new-properties)
     - [Start of day](#start-of-day)
