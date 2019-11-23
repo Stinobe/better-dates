@@ -22,10 +22,10 @@ const betterDate = new BetterDate(87, 9, 14, 11);
 Accessing information from the instances:
 ```javascript
 console.log(date.getMonth());
-// -> 9
+// -> 8
 
 console.log(betterDate.month)
-// -> 9
+// -> 8
 ```
 Setting information on the instances
 ```javascript
@@ -42,3 +42,65 @@ console.log(betterDate)
 // Sat Mar 14 1987 11:00:00 GMT+0100 (CET)
 ```
 > GMT differs because of DST
+
+## New properties
+
+### Start of day
+You can get the start of the day (midnight) using the following property
+```javascript
+import BetterDate from "@stino/better-dates"
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 10:00:00 GMT+0100 (CET)
+
+console.log(date.startOfDay);
+// -> Thu Mar 21 1996 00:00:00 GMT+0100 (CET)
+```
+
+### End of day
+Get the end of the day (23h 23m 999ms)
+```javascript
+import BetterDate from "@stino/better-dates"
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 10:00:00 GMT+0100 (CET)
+
+console.log(date.endOfDay);
+// -> Thu Mar 21 1996 23:59:59 GMT+0100 (CET)
+```
+
+### Number of days in the month
+Get the number of days in the month where the current date is in.
+```javascript
+import BetterDate from "@stino/better-dates"
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 10:00:00 GMT+0100 (CET)
+
+console.log(date.daysInMonth);
+// -> 31
+```
+
+### First day of the month
+Get the first day of the month where the current date is in.
+```javascript
+import BetterDate from "@stino/better-dates"
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 10:00:00 GMT+0100 (CET)
+
+console.log(date.startOfMonth);
+// -> Fri Mar 01 1996 00:00:00 GMT+0100 (CET)
+```
+
+### Last day of the month
+Get the last day of the month where the current date is in.
+```javascript
+import BetterDate from "@stino/better-dates"
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 10:00:00 GMT+0100 (CET)
+
+console.log(date.endOfMonth);
+// -> Sun Mar 31 1996 23:59:59 GMT+0200 (CEST)
+```
