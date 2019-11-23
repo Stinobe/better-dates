@@ -5,7 +5,7 @@ on:
     types: [closed]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -22,6 +22,5 @@ jobs:
         run: |
           npm ci
           npm test
-          npm run build
         env:
           CI: true
