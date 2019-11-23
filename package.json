@@ -1,11 +1,12 @@
 {
   "name": "@stino/better-dates",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "description": "Extended functionality for JavaScript Date object",
   "main": "index.js",
   "scripts": {
     "build": "babel src -d lib",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "dev": "jest --watch"
   },
   "repository": {
@@ -14,9 +15,10 @@
   },
   "keywords": [
     "dates",
-    "date"
+    "date",
+    "calculation"
   ],
-  "author": "stino",
+  "author": "stino <info@bystino.com> (https://bystino.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Stinobe/better-dates/issues"
