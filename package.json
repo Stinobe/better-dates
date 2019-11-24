@@ -4,7 +4,7 @@
   "description": "Extended functionality for JavaScript Date object",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -d lib",
+    "build": "rm -Rf ./lib && babel src -d lib",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "dev": "jest --watch"
