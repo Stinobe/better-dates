@@ -1,6 +1,6 @@
 # Better Dates
 
-The __Better Dates__ packages provides a `Class` which is an extentions of the JavaScript `Date` class. All the `get` and `set` methods from the `Date` class can be accessed as property instead of a function.
+The __Better Dates__ packages provides a `Class` which is an extention of the JavaScript `Date` class. All the `get` and `set` methods from the `Date` class can be accessed as property instead of a function.
 
 There are other JavaScript Date libraries out there, but most of them have a lot of functionallity which I don't need in my projects, making my projects heavier than it actually needs to be.
 
