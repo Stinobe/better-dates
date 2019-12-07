@@ -65,6 +65,12 @@ class BetterDate extends Date {
     const currentTime = this.getTime();
     return currentTime < givenDateTime;
   }
+
+  isAfter(givenDate = new BetterDate()) {
+    const givenDateTime = givenDate.getTime();
+    const currentTime = this.getTime();
+    return currentTime > givenDateTime;
+  }
 }
 
 export default BetterDate;
