@@ -14,6 +14,9 @@ That's why I created this package with some basic functionallities I tend to nee
     - [Number of days in the month](#number-of-days-in-the-month)
     - [First day of the month](#first-day-of-the-month)
     - [Last day of the month](#last-day-of-the-month)
+    - [Before given date](#before-given-date)
+    - [After given date](#after-given-date)
+    - [Between two given dates](#between-two-given-dates)
   - [Upcomming](#upcomming)
 
 ## Accessing existing methods
@@ -115,7 +118,74 @@ console.log(date.endOfMonth);
 // -> Sun Mar 31 1996 23:59:59 GMT+0200 (CEST)
 ```
 
+### Before given date
+Check if the current date is before a given date of type `Date` or `BetterDate`.
+> The given date defaults the current time
+```javascript
+import BetterDate from "@stino/better-dates";
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 00:00:00 GMT+0100 (CET)
+
+console.log(date.isBefore());
+// -> true
+```
+```javascript
+import BetterDate from "@stino/better-dates";
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 00:00:00 GMT+0100 (CET)
+const ny = new BetterDate(2020, 0, 1);
+// Wed Jan 01 2020 00:00:00 GMT+0100 (CET)
+
+console.log(date.isBefore(ny));
+// -> true
+```
+
+### After given date
+Check if the current date is after a given date of type `Date` or `BetterDate`.
+> The given date defaults the current time
+```javascript
+import BetterDate from "@stino/better-dates";
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 00:00:00 GMT+0100 (CET)
+
+console.log(date.isAfter());
+// -> false
+```
+```javascript
+import BetterDate from "@stino/better-dates";
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 00:00:00 GMT+0100 (CET)
+const ny = new BetterDate(2020, 0, 1);
+// Wed Jan 01 2020 00:00:00 GMT+0100 (CET)
+
+console.log(date.isAfter(ny));
+// -> false
+```
+
+### Between two given dates
+Check if the current date is between 2 given dates of type `Date` or `BetterDate`.
+```javascript
+import BetterDate from "@stino/better-dates";
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 00:00:00 GMT+0100 (CET)
+const xmas = new BetterDate(2019, 11, 25);
+// Wed Dec 25 2019 00:00:00 GMT+0100 (CET)
+const ny = new BetterDate(2020, 0, 1);
+// Wed Jan 01 2020 00:00:00 GMT+0100 (CET)
+
+console.log(date.isBetween(xmas, ny));
+// -> false
+console.log(date.isBetween(ny, xmas));
+// -> false
+```
+
 ## Upcomming
-- [ ] Check if day is before given date
-- [ ] Check if day is after given day
-- [ ] Check difference between dates
+- [x] Check if day is before given date
+- [x] Check if day is after given day
+- [x] Check difference between dates
+- [ ] Add Calendar view in `Array` format

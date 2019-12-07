@@ -59,6 +59,30 @@ class BetterDate extends Date {
   get endOfMonth() {
     return new BetterDate(this.year, this.month, this.daysInMonth, 23, 59, 59, 999);
   }
+
+  isBefore(givenDate = new BetterDate()) {
+    const givenDateTime = givenDate.getTime();
+    const currentTime = this.getTime();
+    return currentTime < givenDateTime;
+  }
+
+  isAfter(givenDate = new BetterDate()) {
+    const givenDateTime = givenDate.getTime();
+    const currentTime = this.getTime();
+    return currentTime > givenDateTime;
+  }
+
+  isBetween(startDate, endDate) {
+    const givenStartDate = startDate.getTime();
+    const givenEndDate = endDate.getTime();
+    let realStartDate = startDate;
+    let realEndDate = endDate;
+    if (givenStartDate > givenEndDate) {
+      realStartDate = endDate;
+      realEndDate = startDate;
+    }
+    return this.isAfter(realStartDate) && this.isBefore(realEndDate);
+  }
 }
 
 export default BetterDate;
