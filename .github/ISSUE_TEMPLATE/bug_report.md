@@ -2,13 +2,16 @@
 name: Bug report
 about: Create a report to help us improve
 title: ''
-labels: ''
+labels: 'bug'
 assignees: ''
 
 ---
 
 **Describe the bug**
 A clear and concise description of what the bug is.
+
+**The version you're using**
+Which version of the package are you using?
 
 **To Reproduce**
 Steps to reproduce the behavior:
@@ -17,13 +20,13 @@ Steps to reproduce the behavior:
 A clear and concise description of what you expected to happen.
 
 **Your implementation**
-```
-Code on how you implemented
+```javascript
+// Code on how you implemented
 ```
 
 **Error message**
-```
-If applicable, add errors to help explain your problem.
+```javascript
+// If applicable, add errors to help explain your problem.
 ```
 
 **Screenshots**
