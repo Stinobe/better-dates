@@ -1,10 +1,10 @@
-name: Test
+name: Pull Request Test
 
 on:
   pull_request:
     branches:
-      - '!master'
-      - '!development'
+      - master
+      - development
     types:
       - opened
 
