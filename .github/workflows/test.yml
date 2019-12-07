@@ -1,8 +1,12 @@
-name: Test package
+name: Test
 
 on:
   pull_request:
-    types: [closed]
+    branches:
+      - master
+      - development
+    types:
+      - opened
 
 jobs:
   test:
@@ -13,12 +17,18 @@ jobs:
         node-version: [12.x]
 
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node ${{ matrix.node-version }}
+      # Checkout code
+      - name: Checkout ${{ github.ref }}
+        uses: actions/checkout@v1
+
+      # Setup node
+      - name: Setup Node ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install & test packages
+      
+      # Install dependencies & test package
+      - name: Test ${{ github.ref }}
         run: |
           npm ci
           npm test
