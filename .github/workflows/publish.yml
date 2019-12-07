@@ -1,0 +1,29 @@
+name: Publish
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  publish-npm:
+    name: Publish ${{ github.ref }} to NPM
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code from ${{ github.ref }}
+        uses: actions/checkout@v1
+      
+      # Setup Node
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      
+      # Publish package to NPM
+      - name: Publish Package ${{ github.ref }}
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

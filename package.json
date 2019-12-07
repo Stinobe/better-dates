@@ -1,10 +1,10 @@
 {
   "name": "@stino/better-dates",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Extended functionality for JavaScript Date object",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "babel src -d lib",
+    "build": "rm -Rf ./lib && babel src -d lib",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "dev": "jest --watch"

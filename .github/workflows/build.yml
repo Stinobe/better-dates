@@ -1,0 +1,47 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - release/*
+    paths:
+      - '**'
+      - '!dist/**'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code from ${{ github.ref }}
+        uses: actions/checkout@v1
+      
+      # Setup Node
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          registry-url: https://registry.npmjs.org/
+      
+      # Install dependencies
+      - name: Install dependencies
+        run: npm ci
+
+      # Build the package
+      - name: Build package ${{ github.ref }}
+        run: npm run build
+
+      # Git add 'dist' and commit
+      - name: Commit changes
+        uses: EndBug/add-and-commit@v2.1.0
+        with:
+          author_name: Github Actions
+          author_email: gitactions@vanwijmeersch.com
+          message: ${{ github.ref }}
+          path: "dist"
+          pattern: "*.js"
+          force: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHB_TOKEN }}
