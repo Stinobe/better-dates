@@ -1,0 +1,11 @@
+.history/
+.github/
+coverage/
+node_modules/
+src/
+tests/
+.babelrc
+.browserlistrc
+.gitignore
+jest.config.js
+rollup.config.js
