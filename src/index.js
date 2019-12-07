@@ -59,6 +59,12 @@ class BetterDate extends Date {
   get endOfMonth() {
     return new BetterDate(this.year, this.month, this.daysInMonth, 23, 59, 59, 999);
   }
+
+  isBefore(givenDate = new BetterDate()) {
+    const givenDateTime = givenDate.getTime();
+    const currentTime = this.getTime();
+    return currentTime < givenDateTime;
+  }
 }
 
 export default BetterDate;
