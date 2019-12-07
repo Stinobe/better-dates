@@ -2,9 +2,11 @@
   "name": "@stino/better-dates",
   "version": "0.0.1",
   "description": "Extended functionality for JavaScript Date object",
-  "main": "lib/index.js",
+  "main": "./dist/better-dates.cjs.js",
+  "browser": "./dist/better-dates.umd.js",
+  "module": "./dist/better-dates.es.js",
   "scripts": {
-    "build": "rm -Rf ./lib && babel src -d lib",
+    "build": "rm -Rf dist && rollup -c",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "dev": "jest --watch"
@@ -29,6 +31,11 @@
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "jest": "^24.9.0",
-    "jsdoc": "^3.6.3"
+    "jsdoc": "^3.6.3",
+    "rollup": "^1.27.8",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.2"
   }
 }
