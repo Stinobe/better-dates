@@ -71,6 +71,18 @@ class BetterDate extends Date {
     const currentTime = this.getTime();
     return currentTime > givenDateTime;
   }
+
+  isBetween(startDate, endDate) {
+    const givenStartDate = startDate.getTime();
+    const givenEndDate = endDate.getTime();
+    let realStartDate = givenStartDate;
+    let realEndDate = givenEndDate;
+    if (givenStartDate > givenEndDate) {
+      realStartDate = givenEndDate;
+      realEndDate = givenStartDate;
+    }
+    return this.isAfter(realStartDate) && this.isBefore(realEndDate);
+  }
 }
 
 export default BetterDate;
