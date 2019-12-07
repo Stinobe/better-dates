@@ -75,11 +75,11 @@ class BetterDate extends Date {
   isBetween(startDate, endDate) {
     const givenStartDate = startDate.getTime();
     const givenEndDate = endDate.getTime();
-    let realStartDate = givenStartDate;
-    let realEndDate = givenEndDate;
+    let realStartDate = startDate;
+    let realEndDate = endDate;
     if (givenStartDate > givenEndDate) {
-      realStartDate = givenEndDate;
-      realEndDate = givenStartDate;
+      realStartDate = endDate;
+      realEndDate = startDate;
     }
     return this.isAfter(realStartDate) && this.isBefore(realEndDate);
   }
