@@ -9,11 +9,13 @@ That's why I created this package with some basic functionallities I tend to nee
 - [Better Dates](#better-dates)
   - [Accessing existing methods](#accessing-existing-methods)
   - [New properties](#new-properties)
+    - [Today](#today)
     - [Start of day](#start-of-day)
     - [End of day](#end-of-day)
     - [Number of days in the month](#number-of-days-in-the-month)
     - [First day of the month](#first-day-of-the-month)
     - [Last day of the month](#last-day-of-the-month)
+  - [Methods](#methods)
     - [Before given date](#before-given-date)
     - [After given date](#after-given-date)
     - [Between two given dates](#between-two-given-dates)
@@ -57,6 +59,18 @@ console.log(betterDate)
 > GMT differs because of DST
 
 ## New properties
+
+### Today
+Check if the date is same day as current system date
+```javascript
+import BetterDate from "@stino/better-dates"
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 10:00:00 GMT+0100 (CET)
+
+console.log(date.isToday);
+// -> false
+```
 
 ### Start of day
 You can get the start of the day (midnight) using the following property
@@ -117,6 +131,8 @@ const date = new BetterDate(96, 2, 21, 10);
 console.log(date.endOfMonth);
 // -> Sun Mar 31 1996 23:59:59 GMT+0200 (CEST)
 ```
+
+## Methods
 
 ### Before given date
 Check if the current date is before a given date of type `Date` or `BetterDate`.

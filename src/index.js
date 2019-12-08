@@ -60,6 +60,11 @@ class BetterDate extends Date {
     return new BetterDate(this.year, this.month, this.daysInMonth, 23, 59, 59, 999);
   }
 
+  get isToday() {
+    const today = new BetterDate();
+    return this.time >= today.startOfDay.time && this.time <= today.endOfDay.time;
+  }
+
   isBefore(givenDate = new BetterDate()) {
     const givenDateTime = givenDate.getTime();
     const currentTime = this.getTime();

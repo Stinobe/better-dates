@@ -14,6 +14,15 @@ const betterDate = new BetterDate(year, month, day, hours, minutes, seconds, ms)
 
 describe('Additional information', () => {
 
+  test('Is today', () => {
+    const today = new BetterDate();
+    expect(today.isToday).toBeTruthy();
+  });
+
+  test('Is date today', () => {
+    expect(betterDate.isToday).toBeFalsy();
+  });
+
   test('Start of day', () => {
     const startOfDay = new Date(year, month, day, 0, 0, 0);
     expect(betterDate.startOfDay).toEqual(startOfDay);
