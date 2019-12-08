@@ -47,4 +47,13 @@ describe('Additional information', () => {
     expect(betterDate.endOfMonth).toEqual(endOfMonth);
   });
 
+  test('Is current month', () => {
+    const today = new BetterDate();
+    expect(today.isCurrentMonth).toBeTruthy();
+  });
+
+  test('Is date current month', () => {
+    expect(betterDate.isCurrentMonth).toBeFalsy();
+  });
+
 });

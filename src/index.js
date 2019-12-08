@@ -65,6 +65,13 @@ class BetterDate extends Date {
     return this.time >= today.startOfDay.time && this.time <= today.endOfDay.time;
   }
 
+  get isCurrentMonth() {
+    const today = new BetterDate();
+    const startMonth = today.startOfMonth.time;
+    const endMonth = today.endOfMonth.time;
+    return this.time >= startMonth && this.time <= endMonth;
+  }
+
   isBefore(givenDate = new BetterDate()) {
     const givenDateTime = givenDate.getTime();
     const currentTime = this.getTime();
