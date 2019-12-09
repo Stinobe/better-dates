@@ -35,4 +35,16 @@ describe('Comparison', () => {
     expect(date.isBetween(nyDate, originDate)).toBeTruthy();
   });
 
+  test('Is date in same month', () => {
+    const nextNy = new BetterDate(2021, 0, 1);
+    expect(ny.isSameMonth(xmas)).toBeFalsy();
+    expect(ny.isSameMonth(nextNy)).toBeFalsy();
+    expect(ny.isSameMonth(nyDate)).toBeTruthy();
+  });
+
+  test('Is date in same month not strict', () => {
+    const nextNy = new BetterDate(2021, 0, 1);
+    expect(ny.isSameMonth(nextNy, false)).toBeTruthy();
+  });
+
 });

@@ -14,6 +14,15 @@ const betterDate = new BetterDate(year, month, day, hours, minutes, seconds, ms)
 
 describe('Additional information', () => {
 
+  test('Is today', () => {
+    const today = new BetterDate();
+    expect(today.isToday).toBeTruthy();
+  });
+
+  test('Is date today', () => {
+    expect(betterDate.isToday).toBeFalsy();
+  });
+
   test('Start of day', () => {
     const startOfDay = new Date(year, month, day, 0, 0, 0);
     expect(betterDate.startOfDay).toEqual(startOfDay);
@@ -36,6 +45,15 @@ describe('Additional information', () => {
   test('End of month', () => {
     const endOfMonth = new Date(year, month, daysInMonth, 23, 59, 59, 999);
     expect(betterDate.endOfMonth).toEqual(endOfMonth);
+  });
+
+  test('Is current month', () => {
+    const today = new BetterDate();
+    expect(today.isCurrentMonth).toBeTruthy();
+  });
+
+  test('Is date current month', () => {
+    expect(betterDate.isCurrentMonth).toBeFalsy();
   });
 
 });
