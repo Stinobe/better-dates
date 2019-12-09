@@ -1,3 +1,5 @@
+import Calendar from "./Calendar";
+
 /**
  * 
  */
@@ -6,6 +8,8 @@ class BetterDate extends Date {
   constructor(...args) {
     // Send given arguments to the JavaScript Date object
     super(...args);
+    // Set first day of week on Monday
+    this._fdow = 1;
   }
 
   get time() {
@@ -103,6 +107,17 @@ class BetterDate extends Date {
     const currentYear = this.getFullYear();
     return (currentMonth === givenMonth) && (strict ? (currentYear === givenYear) : !strict);
   }
+
+  get calendar() {
+    return Calendar(this, this._fdow);
+  }
+
+  set firstDayOfWeek(fdow) {
+    this._fdow = fdow;
+  }
 }
 
-export default BetterDate;
+export {
+  Calendar,
+  BetterDate as default
+};

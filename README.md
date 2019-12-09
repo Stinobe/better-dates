@@ -16,6 +16,7 @@ That's why I created this package with some basic functionallities I tend to nee
     - [First day of the month](#first-day-of-the-month)
     - [Last day of the month](#last-day-of-the-month)
     - [Is current month](#is-current-month)
+    - [Calendar](#calendar)
   - [Methods](#methods)
     - [Before given date](#before-given-date)
     - [After given date](#after-given-date)
@@ -131,6 +132,47 @@ const date = new BetterDate(96, 2, 21, 10);
 
 console.log(date.isCurrentMonth);
 // -> false
+```
+
+### Calendar
+Gets a calendar for the current date in `Array` format.
+Returns a month `Array` containing week `Array`'s with instances of `BetterDate`.
+The first day of the week will be Monday by default.
+```javascript
+import BetterDate from "@stino/better-dates"
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 10:00:00 GMT+0100 (CET)
+
+console.log(date.calendar);
+// -> [Array, Array, Array, Array, Array]
+// An Array contains 7 BetterDate instances
+```
+
+> You can change the first day of the week by setting it on the `BetterDate` instance  
+> `date.firstDayOfWeek = 0` _(Sunday)_
+
+
+The `Calendar` property can be used as seperate function without `BetterDate`.
+
+| Param  | Type                  | Description                           |      Defaults      |
+| ------ | --------------------- | ------------------------------------- | :----------------: |
+| `date` | `Date` / `BetterDate` | Date to compare with                  | `new BetterDate()` |
+| `fdow` | `Number`              | First day of week (0 for Sunday, ...) |   `1` _(Monday)_   |
+
+```javascript
+import { Calendar } from "@stino/better-dates";
+
+const date = new Date(1987, 8, 14);
+// Mon Sep 14 1987 00:00:00 GMT+0200 (CEST)
+
+console.log(Calendar(date));
+// -> [Array, Array, Array, Array, Array]
+// An Array contains 7 BetterDate instances
+
+console.log(Calendar(date, 3));
+// -> [Array, Array, Array, Array, Array]
+// An Array contains 7 BetterDate instances with Wednesday as first day of the week
 ```
 
 ## Methods
