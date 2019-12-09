@@ -293,4 +293,4 @@ console.log(nextBday.isSameMonth(date), false);
 - [x] Check if day is before given date
 - [x] Check if day is after given day
 - [x] Check difference between dates
-- [ ] Add Calendar view in `Array` format
+- [x] Add Calendar view in `Array` format
