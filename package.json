@@ -1,6 +1,6 @@
 {
   "name": "@stino/better-dates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extended functionality for JavaScript Date object",
   "main": "./dist/better-dates.cjs.js",
   "browser": "./dist/better-dates.umd.js",
