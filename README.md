@@ -1,6 +1,6 @@
 # Better Dates
 
-The __Better Dates__ packages provides a `Class` which is an extention of the JavaScript `Date` class. All the `get` and `set` methods from the `Date` class can be accessed as property instead of a function.
+The __Better Dates__ packages provides a `Class` which is an extention of the JavaScript `Date` class. Most of the `get` methods from the `Date` class can be accessed as property instead of a function.
 
 There are other JavaScript Date libraries out there, but most of them have a lot of functionallity which I don't need in my projects, making my projects heavier than it actually needs to be.
 
@@ -20,6 +20,7 @@ That's why I created this package with some basic functionallities I tend to nee
     - [Before given date](#before-given-date)
     - [After given date](#after-given-date)
     - [Between two given dates](#between-two-given-dates)
+    - [Is same month](#is-same-month)
   - [Upcomming](#upcomming)
 
 ## Accessing existing methods
@@ -43,21 +44,8 @@ console.log(date.getMonth());
 console.log(betterDate.month)
 // -> 8
 ```
-Setting information on the instances
-```javascript
-// Set month to March on Date instance
-date.setMonth(2);
-
-// Set month to March on BetterDate instance
-betterDate.month = 2;
-
-console.log(date);
-// Sat Mar 14 1987 11:00:00 GMT+0100 (CET)
-
-console.log(betterDate)
-// Sat Mar 14 1987 11:00:00 GMT+0100 (CET)
-```
-> GMT differs because of DST
+> Setting properties should always happen with original methods  
+> In above example: `setMonth` should be used to set the month
 
 ## New properties
 
@@ -149,7 +137,11 @@ console.log(date.isCurrentMonth);
 
 ### Before given date
 Check if the current date is before a given date of type `Date` or `BetterDate`.
-> The given date defaults the current time
+
+| Param       | Type                  | Description          |      Defaults      |
+| ----------- | --------------------- | -------------------- | :----------------: |
+| `givenDate` | `Date` / `BetterDate` | Date to compare with | `new BetterDate()` |
+
 ```javascript
 import BetterDate from "@stino/better-dates";
 
@@ -173,7 +165,11 @@ console.log(date.isBefore(ny));
 
 ### After given date
 Check if the current date is after a given date of type `Date` or `BetterDate`.
-> The given date defaults the current time
+
+| Param       | Type                  | Description          |      Defaults      |
+| ----------- | --------------------- | -------------------- | :----------------: |
+| `givenDate` | `Date` / `BetterDate` | Date to compare with | `new BetterDate()` |
+
 ```javascript
 import BetterDate from "@stino/better-dates";
 
@@ -197,6 +193,12 @@ console.log(date.isAfter(ny));
 
 ### Between two given dates
 Check if the current date is between 2 given dates of type `Date` or `BetterDate`.
+
+| Param       | Type                  | Description       |
+| ----------- | --------------------- | ----------------- |
+| `startDate` | `Date` / `BetterDate` | Start of timespan |
+| `endDate`   | `Date` / `BetterDate` | End of timespan   |
+
 ```javascript
 import BetterDate from "@stino/better-dates";
 
@@ -211,6 +213,38 @@ console.log(date.isBetween(xmas, ny));
 // -> false
 console.log(date.isBetween(ny, xmas));
 // -> false
+```
+
+### Is same month
+Check if two dates are in the same month
+
+| Param       | Type                  | Description                                   | Defaults |
+| ----------- | --------------------- | --------------------------------------------- | :------: |
+| `givenDate` | `Date` / `BetterDate` | Date to compare with                          |          |
+| `strict`    | `Boolean`             | Weither to check if month is in the same year |  `true`  |
+
+```javascript
+import BetterDate from "@stino/better-dates";
+
+const date = new BetterDate(96, 2, 21, 10);
+// Thu Mar 21 1996 00:00:00 GMT+0100 (CET)
+const xmas = new BetterDate(2019, 11, 25);
+// Wed Dec 25 2019 00:00:00 GMT+0100 (CET)
+const stNicolas = new BetterDate(2019, 11, 6);
+// Wed Jan 01 2020 00:00:00 GMT+0100 (CET)
+const nextBday = new BetterDate(2020, 2, 21);
+// Sat Mar 21 2020 00:00:00 GMT+0100 (CET)
+
+console.log(date.isSameMonth(xmas));
+// -> false
+console.log(stNicolas.isSameMonth(xmas));
+// -> true
+
+// With strict flag
+console.log(nextBday.isSameMonth(date));
+// -> false
+console.log(nextBday.isSameMonth(date), false);
+// -> true
 ```
 
 ## Upcomming

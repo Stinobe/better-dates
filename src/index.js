@@ -95,6 +95,14 @@ class BetterDate extends Date {
     }
     return this.isAfter(realStartDate) && this.isBefore(realEndDate);
   }
+
+  isSameMonth(givenDate = new Date(), strict = true) {
+    const givenMonth = givenDate.getMonth();
+    const givenYear = givenDate.getFullYear();
+    const currentMonth = this.getMonth();
+    const currentYear = this.getFullYear();
+    return (currentMonth === givenMonth) && (strict ? (currentYear === givenYear) : !strict);
+  }
 }
 
 export default BetterDate;
